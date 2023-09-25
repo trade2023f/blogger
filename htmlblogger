@@ -2,102 +2,102 @@
 <!DOCTYPE html>
 <html b:css='false' b:defaultwidgetversion='2' b:js='true' b:layoutsVersion='3' b:responsive='true' expr:dir='data:blog.locale.languageDirection' expr:lang='data:blog.locale.language' prefix='og: http://ogp.me/ns#' xmlns='http://www.w3.org/1999/xhtml' xmlns:b='http://www.google.com/2005/gml/b' xmlns:data='http://www.google.com/2005/gml/data' xmlns:expr='http://www.google.com/2005/gml/expr'>
 
-  <!-- Anime.xml-free v4.3.0 | Canvas.xml v1.10.0 | github.com/zkreations/canvas.xml -->
+<!-- Anime.xml-free v4.3.0 | Canvas.xml v1.10.0 | github.com/zkreations/canvas.xml -->
 
-  <head>
+<head>
+  
+  <script async='async' crossorigin='anonymous' src='https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2563242789849822'/>
+  <meta content='PmBX_OPYjiaUFuza_tjCtf1DgVMRMRCG64DrWqjIQfw' name='google-site-verification'/>
+  
+  <!-- Google tag (gtag.js) -->
+<script async='async' src='https://www.googletagmanager.com/gtag/js?id=G-Q30RBYZJDQ'/>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag(&#39;js&#39;, new Date());
 
-    <script async='async' crossorigin='anonymous' src='https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2563242789849822'/>
-    <meta content='PmBX_OPYjiaUFuza_tjCtf1DgVMRMRCG64DrWqjIQfw' name='google-site-verification'/>
+  gtag(&#39;config&#39;, &#39;G-Q30RBYZJDQ&#39;);
+</script>
+   
+<!-- Basic data -->
+<meta expr:charset='data:blog.encoding'/>
+<meta expr:content='data:view.isHomepage ? &quot;website&quot; : &quot;article&quot;' property='og:type'/>
 
-    <!-- Google tag (gtag.js) -->
-    <script async='async' src='https://www.googletagmanager.com/gtag/js?id=G-Q30RBYZJDQ'/>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag(&#39;js&#39;, new Date());
+<!-- Responsive viewport -->
+<meta content='width=device-width,initial-scale=1' name='viewport'/>
 
-      gtag(&#39;config&#39;, &#39;G-Q30RBYZJDQ&#39;);
-    </script>
+<!-- App name -->
+<meta expr:content='data:blog.title' name='application-name'/>
+<meta expr:content='data:blog.title' property='og:site_name'/>
 
-    <!-- Basic data -->
-    <meta expr:charset='data:blog.encoding'/>
-    <meta expr:content='data:view.isHomepage ? &quot;website&quot; : &quot;article&quot;' property='og:type'/>
+<!-- Meta Referrer Tag -->
+<meta content='unsafe-url' name='referrer'/>
 
-    <!-- Responsive viewport -->
-    <meta content='width=device-width,initial-scale=1' name='viewport'/>
+<!-- Type of twitter card -->
+<meta content='summary_large_image' name='twitter:card'/>
 
-    <!-- App name -->
-    <meta expr:content='data:blog.title' name='application-name'/>
-    <meta expr:content='data:blog.title' property='og:site_name'/>
+<!-- favicon -->
+<link expr:href='data:blog.blogspotFaviconUrl' rel='icon' type='image/x-icon'/>
 
-    <!-- Meta Referrer Tag -->
-    <meta content='unsafe-url' name='referrer'/>
+<!-- Url canonical -->
+<meta expr:content='data:view.url.canonical' property='og:url'/>
+<link expr:href='data:view.url.canonical' rel='canonical'/>
 
-    <!-- Type of twitter card -->
-    <meta content='summary_large_image' name='twitter:card'/>
+<!-- Descripcion -->
+<b:if cond='data:view.description'>
+   <meta expr:content='data:view.description.escaped' property='og:description'/>
+   <meta expr:content='data:view.description.escaped' name='description'/>
+</b:if>
 
-    <!-- favicon -->
-    <link expr:href='data:blog.blogspotFaviconUrl' rel='icon' type='image/x-icon'/>
+<b:if cond='data:view.isError or data:view.isArchive or data:view.isSearch'>
+   <meta content='noindex,follow' name='robots'/>
+</b:if>
 
-    <!-- Url canonical -->
-    <meta expr:content='data:view.url.canonical' property='og:url'/>
-    <link expr:href='data:view.url.canonical' rel='canonical'/>
+<!-- Featured Image -->
+<b:if cond='data:widgets'>
+   <b:loop values='data:widgets.Blog.first.posts where (p =&gt; p.featuredImage) map (p =&gt; p.featuredImage)' var='imageUrl'>
+     <meta expr:content='resizeImage(data:imageUrl,1200,&quot;1200:630&quot;)' property='og:image'/>
+   </b:loop>
+   <meta content='1200' property='og:image:width'/>
+   <meta content='630' property='og:image:height'/>
+</b:if>
 
-    <!-- Descripcion -->
-    <b:if cond='data:view.description'>
-      <meta expr:content='data:view.description.escaped' property='og:description'/>
-      <meta expr:content='data:view.description.escaped' name='description'/>
-    </b:if>
+<!-- Title -->
+<b:with value='data:view.isError ? data:messages.theresNothingHere : data:view.title.escaped' var='title'>
+   <meta expr:content='data:title' property='og:title'/>
+   <meta expr:content='data:title' name='twitter:title'/>
+   <title><data:title/></title>
+</b:with>
 
-    <b:if cond='data:view.isError or data:view.isArchive or data:view.isSearch'>
-      <meta content='noindex,follow' name='robots'/>
-    </b:if>
+<!-- Feeds -->
+<b:if cond='data:blog.feedLinks'>
+<b:with value='path(data:blog.homepageUrl.canonical,&quot;feeds/posts/default&quot;)' var='feeds'>
+   <link expr:href='data:feeds' rel='alternate' title='Atom 1.0' type='application/atom+xml'/>
+   <link expr:href='data:feeds params {alt: &quot;rss&quot;}' rel='alternate' title='RSS 2.0' type='application/rss+xml'/>
+</b:with>
+</b:if>
 
-    <!-- Featured Image -->
-    <b:if cond='data:widgets'>
-      <b:loop values='data:widgets.Blog.first.posts where (p =&gt; p.featuredImage) map (p =&gt; p.featuredImage)' var='imageUrl'>
-        <meta expr:content='resizeImage(data:imageUrl,1200,&quot;1200:630&quot;)' property='og:image'/>
-      </b:loop>
-      <meta content='1200' property='og:image:width'/>
-      <meta content='630' property='og:image:height'/>
-    </b:if>
+<!-- AdSense -->
+<b:if cond='data:widgets.AdSense.first or data:blog.adsenseClientId'>
+   <script async='async' crossorigin='anonymous' src='https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2563242789849822'/>
+</b:if>
 
-    <!-- Title -->
-    <b:with value='data:view.isError ? data:messages.theresNothingHere : data:view.title.escaped' var='title'>
-      <meta expr:content='data:title' property='og:title'/>
-      <meta expr:content='data:title' name='twitter:title'/>
-      <title><data:title/></title>
-    </b:with>
+<!-- Sitelinks Searchbox -->
+<script type='application/ld+json'>
+{
+    &quot;@context&quot;: &quot;http://schema.org&quot;,
+    &quot;@type&quot;: &quot;WebSite&quot;,
+    &quot;url&quot;: &quot;<data:blog.homepageUrl.canonical/>&quot;,
+    &quot;potentialAction&quot;: {
+        &quot;@type&quot;: &quot;SearchAction&quot;,
+        &quot;target&quot;: &quot;<data:blog.searchUrl/>?q={search_term_string}&quot;,
+        &quot;query-input&quot;: &quot;required name=search_term_string&quot;
+    }
+}
+</script>
 
-    <!-- Feeds -->
-    <b:if cond='data:blog.feedLinks'>
-      <b:with value='path(data:blog.homepageUrl.canonical,&quot;feeds/posts/default&quot;)' var='feeds'>
-        <link expr:href='data:feeds' rel='alternate' title='Atom 1.0' type='application/atom+xml'/>
-        <link expr:href='data:feeds params {alt: &quot;rss&quot;}' rel='alternate' title='RSS 2.0' type='application/rss+xml'/>
-      </b:with>
-    </b:if>
-
-    <!-- AdSense -->
-    <b:if cond='data:widgets.AdSense.first or data:blog.adsenseClientId'>
-      <script async='async' crossorigin='anonymous' src='https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2563242789849822'/>
-    </b:if>
-
-    <!-- Sitelinks Searchbox -->
-    <script type='application/ld+json'>
-      {
-      &quot;@context&quot;: &quot;http://schema.org&quot;,
-      &quot;@type&quot;: &quot;WebSite&quot;,
-      &quot;url&quot;: &quot;<data:blog.homepageUrl.canonical/>&quot;,
-      &quot;potentialAction&quot;: {
-      &quot;@type&quot;: &quot;SearchAction&quot;,
-      &quot;target&quot;: &quot;<data:blog.searchUrl/>?q={search_term_string}&quot;,
-      &quot;query-input&quot;: &quot;required name=search_term_string&quot;
-      }
-      }
-    </script>
-
-    <b:comment>Global Styles</b:comment>
-    <style>/*<![CDATA[*/
+<b:comment>Global Styles</b:comment>
+<style>/*<![CDATA[*/
 /*! Google fonts */
 @font-face{font-family:Oswald;font-style:normal;font-weight:400;src:local('Oswald Regular'),local('Oswald-Regular'),url(https://fonts.gstatic.com/s/oswald/v16/TK3iWkUHHAIjg752GT8A.woff) format('woff');font-display:fallback}@font-face{font-family:Oswald;font-style:normal;font-weight:200;src:local('Oswald Medium'),local('Oswald-Medium'),url(https://fonts.gstatic.com/s/oswald/v16/TK3hWkUHHAIjg75-6hwTus9E.woff) format('woff');font-display:fallback}@font-face{font-family:Oswald;font-style:normal;font-weight:700;src:local('Oswald Bold'),local('Oswald-Bold'),url(https://fonts.gstatic.com/s/oswald/v16/TK3hWkUHHAIjg75-ohoTus9E.woff) format('woff');font-display:fallback}@font-face{font-family:Roboto;font-display:auto;font-style:normal;font-weight:300;src:local('Roboto Light'),local('Roboto-Light'),url(https://fonts.gstatic.com/s/roboto/v19/KFOlCnqEu92Fr1MmSU5fBBc-.woff) format('woff');font-display:fallback}@font-face{font-family:Roboto;font-display:auto;font-style:normal;font-weight:400;src:local('Roboto'),local('Roboto-Regular'),url(https://fonts.gstatic.com/s/roboto/v19/KFOmCnqEu92Fr1Mu4mxM.woff) format('woff');font-display:fallback}@font-face{font-family:Roboto;font-display:auto;font-style:normal;font-weight:500;src:local('Roboto Medium'),local('Roboto-Medium'),url(https://fonts.gstatic.com/s/roboto/v19/KFOlCnqEu92Fr1MmEU9fBBc-.woff) format('woff');font-display:fallback}@font-face{font-family:Roboto;font-display:auto;font-style:normal;font-weight:700;src:local('Roboto Bold'),local('Roboto-Bold'),url(https://fonts.gstatic.com/s/roboto/v19/KFOlCnqEu92Fr1MmWUlfBBc-.woff) format('woff');font-display:fallback}
 
@@ -1741,6 +1741,9 @@ document.body.classList.remove("no-js");
    &lt;li&gt;&lt;a href=&quot;https://www.tiendatrade.blog/search/label/Noticias&quot;&gt;Noticias&lt;/a&gt;&lt;/li&gt;
    &lt;li&gt;&lt;a href=&quot;https://www.tiendatrade.blog/search/label/Tutoriales&quot;&gt;Tutoriales&lt;/a&gt;&lt;/li&gt;
    &lt;li&gt;&lt;a href=&quot;https://www.tiendatrade.blog/search/label/Benchmark&quot;&gt;Benchmarks&lt;/a&gt;&lt;/li&gt;
+   &lt;li&gt;&lt;a href=&quot;https://www.tiendatrade.blog/search/label/PC%20armadas&quot;&gt;PC armadas&lt;/a&gt;&lt;/li&gt;
+   &lt;li&gt;&lt;a href=&quot;https://www.tiendatrade.blog/search/label/Unboxing&quot;&gt;Unboxing&lt;/a&gt;&lt;/li&gt;
+   &lt;li&gt;&lt;a href=&quot;https://www.tiendatrade.blog/search/label/Finanzas%20Tech&quot;&gt;Finanzas Tech&lt;/a&gt;&lt;/li&gt;
    &lt;li&gt;&lt;a href=&quot;https://www.tiendatrade.com.ar/&quot;&gt;Tienda online&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;</b:widget-setting>
     </b:widget-settings>
